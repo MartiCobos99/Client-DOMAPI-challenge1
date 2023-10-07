@@ -3,11 +3,27 @@
 1. Answer the following questions:
 
    - How would you select from JavaScript an element `p` that has the class `text` and also the class `important`?
+
+    **ANSWER: const element = document.querySelector('p.text.important');**
+
    - How would you select from JavaScript a `button` element with class `button` and that is disabled?
+
+    **ANSWER: const buttonElement = document.querySelector('button.button[disabled]');**
+
    - How would you select from JavaScript all the `li` elements that are direct children of an `ul` element with class `list`?
+
+    **ANSWER: const listItems = document.querySelectorAll('ul.list > li');**
+
    - How would you select from JavaScript all the `input` elements that are descendants of a `form` element with class `form-new-item`, and that have a `type` attribute with a value `text`?
 
+    **ANSWER: const textInputs = document.querySelectorAll('form.form-new-item input[type="text"]');**
+
+
+
+
+
 2. From the following HTML structure, create a script that selects the header "The MEAN stack". Next, change the text to "The MERN stack" and remove the "subtitle" class.
+
 
 ```html
 <main class="main-content">
@@ -22,6 +38,21 @@
 </main>
 ```
 
+**ANSWER: 
+
+
+const subtitleHeader = document.querySelector('.subtitle');
+
+if (subtitleHeader) {
+  subtitleHeader.textContent = 'The MEAN stack';
+  subtitleHeader.classList.remove('subtitle');
+}**
+
+
+
+
+
+
 3. Here you have an HTML without data:
 
 ```html
@@ -35,3 +66,23 @@
 Create a script where you declare a variable with a student's data
 (name, age and photo URL). Next, get the elements from the HTML
 and fill them in with the student's information.
+
+
+**ANSWER:
+
+const studentData = {
+  name: 'Martí Cobos',
+  age: 18,
+  photoUrl: 'https://example.jpg'
+};
+
+const studentNameElement = document.querySelector('.student-name');
+const studentAgeElement = document.querySelector('.student-age');
+const studentPhotoElement = document.querySelector('.student-photo');
+
+if (studentNameElement && studentAgeElement && studentPhotoElement) {
+  studentNameElement.textContent = studentData.name;
+  studentAgeElement.textContent = studentData.age;
+  studentPhotoElement.src = studentData.photoUrl;
+  studentPhotoElement.alt = `Photo of ${studentData.name}`;
+}**
